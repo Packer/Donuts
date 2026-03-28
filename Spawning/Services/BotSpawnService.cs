@@ -54,7 +54,7 @@ public abstract class BotSpawnService : IBotSpawnService
 		
 		_botsController = Singleton<IBotGame>.Instance.BotsController;
 		_eftBotSpawner = _botsController.BotSpawner;
-		_botCreator = _eftBotSpawner._botCreator;
+		_botCreator = _eftBotSpawner.BotCreator;
 		
 		_waveSpawnProcessor = new PlayerCombatStateCheck();
 		_waveSpawnProcessor.SetNext(new WaveSpawnChanceCheck());
@@ -183,7 +183,7 @@ public abstract class BotSpawnService : IBotSpawnService
 	{
 		using Utf8ValueStringBuilder sb = ZString.CreateUtf8StringBuilder();
 		
-		int currentInSpawnProcess = _eftBotSpawner._inSpawnProcess;
+		int currentInSpawnProcess = _eftBotSpawner.InSpawnProcess;
 		if (DefaultPluginVars.debugLogging.Value)
 		{
 			sb.Clear();
@@ -205,7 +205,7 @@ public abstract class BotSpawnService : IBotSpawnService
 			}
 		}
 		
-		_eftBotSpawner._inSpawnProcess = newInSpawnProcess;
+		_eftBotSpawner.InSpawnProcess = newInSpawnProcess;
 		
 		if (DefaultPluginVars.debugLogging.Value)
 		{

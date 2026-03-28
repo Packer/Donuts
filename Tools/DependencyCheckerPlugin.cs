@@ -20,15 +20,15 @@ namespace Donuts.Tools;
 [BepInPlugin("com.dvize.DonutsDependencyChecker", "Donuts Dependency Checker", "1.1.0")]
 [BepInDependency("com.SPT.core", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInDependency("xyz.drakia.waypoints", BepInDependency.DependencyFlags.SoftDependency)]
-[BepInDependency("com.Arys.UnityToolkit", BepInDependency.DependencyFlags.SoftDependency)]
+[BepInDependency("com.arys.unitytoolkit", BepInDependency.DependencyFlags.SoftDependency)]
 public sealed class DependencyCheckerPlugin : BaseUnityPlugin
 {
 	private const float ERROR_WAITING_TIME = 60f;
-	private readonly Version _targetSptVersion = new("3.11.0");
+	private readonly Version _targetSptVersion = new("4.0.13");
 	private DependencyInfo[] _hardDependencies =
 	[
 		new("xyz.drakia.waypoints", "Drakia's Waypoints", new Version("0.0.0")),
-		new("com.Arys.UnityToolkit", "UnityToolkit", new Version("1.3.0")),
+		new("com.arys.unitytoolkit", "UnityToolkit", new Version("2.0.1")),
 	];
 	
 	private static bool s_canShowErrorDialog;

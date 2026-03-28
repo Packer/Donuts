@@ -87,7 +87,7 @@ public abstract class BotDataService : IBotDataService, ICancellable
 		this.configService = configService;
 		logger = DonutsRaidManager.Logger;
 		_timeoutController = new TimeoutController(Singleton<DonutsRaidManager>.Instance.OnDestroyTokenSource);
-		_botCreator = Singleton<IBotGame>.Instance.BotsController.BotSpawner._botCreator;
+		_botCreator = Singleton<IBotGame>.Instance.BotsController.BotSpawner.BotCreator;
 		
 		RegisterEventBindings();
 		
@@ -244,8 +244,7 @@ public abstract class BotDataService : IBotDataService, ICancellable
 		{
 			CancellationToken timeoutToken = _timeoutController.Timeout(s_timeout);
 			_sharedToken = timeoutToken;
-			
-			var botProfileData = new BotProfileRequestData(side, wildSpawnType, difficulty, 0f);
+            var botProfileData = new BotProfileDataClass(side, wildSpawnType, difficulty, 0f);
 			var botCreationData = await BotCreationDataClass.Create(botProfileData, _botCreator, groupSize, token: this);
 			
 			_sharedToken = cancellationToken;

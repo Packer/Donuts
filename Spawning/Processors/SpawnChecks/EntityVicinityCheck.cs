@@ -108,7 +108,7 @@ public class EntityVicinityCheck(
 		
 		bool isInLineOfSight = Physics.Raycast(spawnPosition, playerHeadDirection, out RaycastHit hitInfo,
 				playerHeadDirection.magnitude, LayerMaskClass.HighPolyWithTerrainMask) &&
-			hitInfo.collider == playerHead.Collider.Collider;
+			hitInfo.collider == playerHead.BodyPartCollider.Collider;
 		
 		if (DefaultPluginVars.debugLogging.Value && isInLineOfSight)
 		{

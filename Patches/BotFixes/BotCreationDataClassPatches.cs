@@ -35,9 +35,9 @@ public class BotCreationDataClassPatches
 			AccessTools.Method(s_targetType, nameof(BotCreationDataClass.GetPosition));
 		
 		[PatchPrefix]
-		private static bool PatchPrefix(ref SpawnPointData __result, List<SpawnPointData> ___list_0)
+		private static bool PatchPrefix(ref GClass682 __result, List<GClass682> ___List_0)
 		{
-			__result = ___list_0.PickRandomElement();
+            __result = ___List_0.RandomElement();
 			return false;
 		}
 	}
@@ -47,11 +47,11 @@ public class BotCreationDataClassPatches
 	public class ChooseProfilePatch : ModulePatch
 	{
 		protected override MethodBase GetTargetMethod() =>
-			AccessTools.Method(typeof(BotProfileRequestData), nameof(BotProfileRequestData.ChooseProfile));
-		
+			AccessTools.Method(typeof(BotProfileDataClass), nameof(BotProfileDataClass.ChooseProfile));
+
 		[PatchPrefix]
 		private static bool PatchPrefix(
-			BotProfileRequestData __instance,
+            BotProfileDataClass __instance,
 			ref Profile __result,
 			List<Profile> profiles2Select,
 			bool withDelete)
@@ -64,8 +64,8 @@ public class BotCreationDataClassPatches
 				Profile profile = profiles2Select[i];
 				ProfileInfoSettingsClass profileSettings = profile.Info.Settings;
 				
-				if (profileSettings.Role == __instance.wildSpawnType_0 &&
-					profileSettings.BotDifficulty == __instance.botDifficulty_0)
+				if (profileSettings.Role == __instance.WildSpawnType_0 &&
+					profileSettings.BotDifficulty == __instance.BotDifficulty_0)
 				{
 					list.Add(profile);
 				}
