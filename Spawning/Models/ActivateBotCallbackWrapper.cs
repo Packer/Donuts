@@ -12,19 +12,19 @@ namespace Donuts.Spawning.Models;
 
 public class ActivateBotCallbackWrapper([NotNull] BotSpawner botSpawner, [NotNull] BotCreationDataClass botData)
 {
-	private static readonly FieldInfo s_deadBodiesControllerField = AccessTools.Field(typeof(BotSpawner), "_deadBodiesController");
-	private static readonly FieldInfo s_botsField = AccessTools.Field(typeof(BotSpawner), "_bots");
-	private static readonly FieldInfo s_allPlayersField = AccessTools.Field(typeof(BotSpawner), "_allPlayers");
-	private static readonly FieldInfo s_freeForAllField = AccessTools.Field(typeof(BotSpawner), "_freeForAll");
+	private static readonly FieldInfo s_deadBodiesControllerField = AccessTools.Field(typeof(BotSpawner), "DeadBodiesController");
+	private static readonly FieldInfo s_botsField = AccessTools.Field(typeof(BotSpawner), "Bots");
+	private static readonly FieldInfo s_allPlayersField = AccessTools.Field(typeof(BotSpawner), "AllPlayers");
+	private static readonly FieldInfo s_freeForAllField = AccessTools.Field(typeof(BotSpawner), "FreeForAll");
 	// (BotOwner bot, BotCreationDataClass data, Action<BotOwner> callback, bool shallBeGroup, Stopwatch stopWatch)
 	
 	private static readonly Stopwatch s_stopwatch = new();
 	
 	private BotsGroup _group;
 	private int _membersCount;
-	private readonly DeadBodiesController _deadBodiesController = (DeadBodiesController)s_deadBodiesControllerField.GetValue(botSpawner);
-	private readonly BotsClass _bots = (BotsClass)s_botsField.GetValue(botSpawner);
-	private readonly bool _freeForAll = (bool)s_freeForAllField.GetValue(botSpawner);
+	private readonly DeadBodiesController DeadBodiesController = (DeadBodiesController)s_deadBodiesControllerField.GetValue(botSpawner);
+	private readonly BotsClass Bots = (BotsClass)s_botsField.GetValue(botSpawner);
+	private readonly bool FreeForAll = (bool)s_freeForAllField.GetValue(botSpawner);
 	
 	/// <summary>
 	/// Invoked when the bot is created. Ensures the bot has its group set.
@@ -107,7 +107,7 @@ public class ActivateBotCallbackWrapper([NotNull] BotSpawner botSpawner, [NotNul
 		botSpawner.method_5(bot);
 		
 		var allPlayers = (List<Player>)s_allPlayersField.GetValue(botSpawner);
-		var botsGroup = new BotsGroup(zone, botSpawner.BotGame, bot, enemies, _deadBodiesController, allPlayers,
+		var botsGroup = new BotsGroup(zone, botSpawner.BotGame, bot, enemies, DeadBodiesController, allPlayers,
 			forBoss: isBossOrFollower);
 		
 		if (bot.SpawnProfileData.SpawnParams?.ShallBeGroup != null)
@@ -138,13 +138,13 @@ public class ActivateBotCallbackWrapper([NotNull] BotSpawner botSpawner, [NotNul
 	
 	private List<BotOwner> GetEnemies(BotOwner owner)
 	{
-		if (_freeForAll)
+		if (FreeForAll)
 		{
-			return _bots.BotOwners.ToList();
+			return Bots.BotOwners.ToList();
 		}
 		
 		var enemies = new List<BotOwner>(20);
-		foreach (BotOwner botToCheck in _bots.BotOwners)
+		foreach (BotOwner botToCheck in Bots.BotOwners)
 		{
 			WildSpawnType role = botToCheck.Profile.Info.Settings.Role;
 			if (owner.Settings.IsEnemyByChance(botToCheck))
