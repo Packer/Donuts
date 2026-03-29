@@ -16,7 +16,7 @@ internal class GenerateStartingBotsPatch : ModulePatch
 	{
 		// Type baseGameType = typeof(BaseLocalGame<EftGamePlayerOwner>);
 		Type gameType = DonutsPlugin.FikaEnabled
-			? AccessTools.TypeByName("Fika.Core.Coop.GameMode.CoopGame")
+			? AccessTools.TypeByName("Fika.Core.Main.GameMode.CoopGame")
 			: typeof(LocalGame);
 		
 		return AccessTools.Method(gameType, "vmethod_5");
