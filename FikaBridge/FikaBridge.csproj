@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <AssemblyName>MergeConsumablesFika</AssemblyName>
-    <RootNamespace>MergeConsumablesFika</RootNamespace>
+    <AssemblyName>Donuts-FikaBridge</AssemblyName>
+    <RootNamespace>Donuts.FikaBridge</RootNamespace>
     <LangVersion>latest</LangVersion>
 
     <!-- Optional, but recommended for mod builds -->
