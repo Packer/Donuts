@@ -149,7 +149,9 @@ public class DonutsRaidManager : MonoBehaviourSingleton<DonutsRaidManager>
 	{
 		float deltaTime = Time.deltaTime;
 		
-		_donutsGizmos.DisplayMarkerInformation(_mainPlayer.Transform);
+		//Fika Headless Client Fix
+		if(_mainPlayer != null)
+			_donutsGizmos.DisplayMarkerInformation(_mainPlayer.Transform);
 		
 		if (_updateTimer >= 1f)
 		{

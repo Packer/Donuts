@@ -93,7 +93,7 @@ public class BotConfigService
 	{
 		if (_mapLocation == null)
 		{
-			string mapLocation = Singleton<GameWorld>.Instance.MainPlayer.Location.ToLower();
+            string mapLocation = Singleton<GameWorld>.Instance.LocationId.ToLower();
 			// Handle Ground Zero (High) the same as Ground Zero
 			if (mapLocation == "sandbox_high")
 			{
