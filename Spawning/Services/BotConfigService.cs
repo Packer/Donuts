@@ -124,7 +124,8 @@ public class BotConfigService
 				"laboratory" => "laboratory",
 				"lighthouse" => "lighthouse",
 				"shoreline" => "shoreline",
-				_ => mapLocation
+                "labyrinth" => "labyrinth",
+                _ => mapLocation
 			};
 			_mapName = mapName;
 		}
@@ -354,6 +355,10 @@ public class BotConfigService
 				_botCountLimits[DonutsSpawnType.Pmc] = selectedRaidFolder.PmcBotLimitPresets.GroundZeroBotLimit;
 				_botCountLimits[DonutsSpawnType.Scav] = selectedRaidFolder.ScavBotLimitPresets.GroundZeroBotLimit;
 				break;
-		}
+            case "labyrinth":
+                _botCountLimits[DonutsSpawnType.Pmc] = selectedRaidFolder.PmcBotLimitPresets.LabyrinthBotLimit;
+                _botCountLimits[DonutsSpawnType.Scav] = selectedRaidFolder.ScavBotLimitPresets.LabyrinthBotLimit;
+                break;
+        }
 	}
 }

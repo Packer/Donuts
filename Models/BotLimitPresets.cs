@@ -34,4 +34,7 @@ public class BotLimitPresets
 	
 	[JsonProperty("GroundZeroBotLimit")]
 	public int GroundZeroBotLimit { get; set; }
+
+    [JsonProperty("LabyrinthBotLimit")]
+    public int LabyrinthBotLimit { get; set; }
 }

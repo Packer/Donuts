@@ -134,7 +134,8 @@ public class EntityVicinityCheck(
 			"woods" => DefaultPluginVars.globalMinSpawnDistanceFromPlayerWoods.Value,
 			"laboratory" => DefaultPluginVars.globalMinSpawnDistanceFromPlayerLaboratory.Value,
 			"interchange" => DefaultPluginVars.globalMinSpawnDistanceFromPlayerInterchange.Value,
-			_ => 50f
+			"labyrinth" => DefaultPluginVars.globalMinSpawnDistanceFromPlayerLabyrinth.Value,
+            _ => 50f
 		};
 
 	private static float GetMaxDistanceFromPlayer(string mapLocation) =>
@@ -150,7 +151,8 @@ public class EntityVicinityCheck(
 			"woods" => DefaultPluginVars.globalMaxSpawnDistanceFromPlayerWoods.Value,
 			"laboratory" => DefaultPluginVars.globalMaxSpawnDistanceFromPlayerLaboratory.Value,
 			"interchange" => DefaultPluginVars.globalMaxSpawnDistanceFromPlayerInterchange.Value,
-			_ => 0f
+            "labyrinth" => DefaultPluginVars.globalMaxSpawnDistanceFromPlayerLabyrinth.Value,
+            _ => 0f
 		};
 	
 	private static float GetMinDistanceFromOtherBots(string mapLocation) =>
@@ -166,6 +168,7 @@ public class EntityVicinityCheck(
 			"woods" => DefaultPluginVars.globalMinSpawnDistanceFromOtherBotsWoods.Value,
 			"laboratory" => DefaultPluginVars.globalMinSpawnDistanceFromOtherBotsLaboratory.Value,
 			"interchange" => DefaultPluginVars.globalMinSpawnDistanceFromOtherBotsInterchange.Value,
-			_ => 0f
+            "labyrinth" => DefaultPluginVars.globalMinSpawnDistanceFromOtherBotsLabyrinth.Value,
+            _ => 0f
 		};
 }

@@ -51,9 +51,10 @@ internal static class DefaultPluginVars
 	internal static Setting<float> globalMinSpawnDistanceFromPlayerGroundZero;
 	internal static Setting<float> globalMinSpawnDistanceFromPlayerInterchange;
 	internal static Setting<float> globalMinSpawnDistanceFromPlayerLighthouse;
-	
-	// Global Maximum Spawn Distance From Player
-	internal static Setting<bool> globalMaxSpawnDistanceFromPlayerBool;
+    internal static Setting<float> globalMinSpawnDistanceFromPlayerLabyrinth;
+
+    // Global Maximum Spawn Distance From Player
+    internal static Setting<bool> globalMaxSpawnDistanceFromPlayerBool;
 	internal static Setting<float> globalMaxSpawnDistanceFromPlayerFactory;
 	internal static Setting<float> globalMaxSpawnDistanceFromPlayerCustoms;
 	internal static Setting<float> globalMaxSpawnDistanceFromPlayerReserve;
@@ -64,9 +65,10 @@ internal static class DefaultPluginVars
 	internal static Setting<float> globalMaxSpawnDistanceFromPlayerGroundZero;
 	internal static Setting<float> globalMaxSpawnDistanceFromPlayerInterchange;
 	internal static Setting<float> globalMaxSpawnDistanceFromPlayerLighthouse;
-	
-	// Global Minimum Spawn Distance From Other Bots
-	internal static Setting<bool> globalMinSpawnDistanceFromOtherBotsBool;
+	internal static Setting<float> globalMaxSpawnDistanceFromPlayerLabyrinth;
+
+    // Global Minimum Spawn Distance From Other Bots
+    internal static Setting<bool> globalMinSpawnDistanceFromOtherBotsBool;
 	internal static Setting<float> globalMinSpawnDistanceFromOtherBotsFactory;
 	internal static Setting<float> globalMinSpawnDistanceFromOtherBotsCustoms;
 	internal static Setting<float> globalMinSpawnDistanceFromOtherBotsReserve;
@@ -77,9 +79,10 @@ internal static class DefaultPluginVars
 	internal static Setting<float> globalMinSpawnDistanceFromOtherBotsGroundZero;
 	internal static Setting<float> globalMinSpawnDistanceFromOtherBotsInterchange;
 	internal static Setting<float> globalMinSpawnDistanceFromOtherBotsLighthouse;
-	
-	// Advanced Settings
-	internal static Setting<float> replenishInterval;
+    internal static Setting<float> globalMinSpawnDistanceFromOtherBotsLabyrinth;
+
+    // Advanced Settings
+    internal static Setting<float> replenishInterval;
 	internal static Setting<int> maxSpawnTriesPerBot;
 	internal static Setting<float> despawnInterval;
 	internal static Setting<string> groupWeightDistroLow;
@@ -350,7 +353,9 @@ internal static class DefaultPluginVars
 		globalMinSpawnDistanceFromPlayerGroundZero = new Setting<float>("Ground Zero", tooltipText, 50f, 50f);
 		globalMinSpawnDistanceFromPlayerInterchange = new Setting<float>("Interchange", tooltipText, 85f, 85f);
 		globalMinSpawnDistanceFromPlayerLighthouse = new Setting<float>("Lighthouse", tooltipText, 70f, 70f);
-	}
+        globalMinSpawnDistanceFromPlayerLabyrinth = new Setting<float>("Labyrinth", tooltipText, 35f, 35f);
+
+    }
 	
 	private static void InitGlobalMaxSpawnDistFromPlayer()
 	{
@@ -370,7 +375,8 @@ internal static class DefaultPluginVars
 		globalMaxSpawnDistanceFromPlayerGroundZero = new Setting<float>("Ground Zero", tooltipText, 0f, 0f);
 		globalMaxSpawnDistanceFromPlayerInterchange = new Setting<float>("Interchange", tooltipText, 0f, 0f);
 		globalMaxSpawnDistanceFromPlayerLighthouse = new Setting<float>("Lighthouse", tooltipText, 0f, 0f);
-	}
+        globalMaxSpawnDistanceFromPlayerLabyrinth = new Setting<float>("Labyrinth", tooltipText, 0f, 0f);
+    }
 	
 	private static void InitGlobalMinSpawnDistFromOtherBots()
 	{
@@ -390,7 +396,8 @@ internal static class DefaultPluginVars
 		globalMinSpawnDistanceFromOtherBotsGroundZero = new Setting<float>("Ground Zero", tooltipText, 30f, 30f);
 		globalMinSpawnDistanceFromOtherBotsInterchange = new Setting<float>("Interchange", tooltipText, 65f, 65f);
 		globalMinSpawnDistanceFromOtherBotsLighthouse = new Setting<float>("Lighthouse", tooltipText, 60f, 60f);
-	}
+        globalMinSpawnDistanceFromOtherBotsLabyrinth = new Setting<float>("Labyrinth", tooltipText, 15f, 15f);
+    }
 	
 	private static void InitAdvancedSettings()
 	{

@@ -34,7 +34,8 @@ internal class SpawnSettingsPage : ISettingsPage
                 globalMinSpawnDistanceFromPlayerShoreline,
                 globalMinSpawnDistanceFromPlayerGroundZero,
                 globalMinSpawnDistanceFromPlayerInterchange,
-                globalMinSpawnDistanceFromPlayerLighthouse
+                globalMinSpawnDistanceFromPlayerLighthouse,
+                globalMinSpawnDistanceFromPlayerLabyrinth
             };
 
             // Sort the settings by name in ascending order
